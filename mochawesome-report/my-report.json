@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-03-08T07:41:07.566Z",
+    "end": "2024-03-08T07:42:17.494Z",
+    "duration": 69928,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "50587eb4-1e7c-4b38-855d-420b963ae964",
+      "title": "",
+      "fullFile": "cypress\\e2e\\loginTokopedia.cy.js",
+      "file": "cypress\\e2e\\loginTokopedia.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c1cc21dd-2437-4dc7-9568-1c4c0a041edf",
+          "title": "Login to Tokopedia",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Success Login Tokopedia",
+              "fullTitle": "Login to Tokopedia Success Login Tokopedia",
+              "timedOut": null,
+              "duration": 40917,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Click \"Masuk\" in Header\ncy.get('button[data-testid=\"btnHeaderLogin\"]').click();\ncy.wait(2000);\ncy.get('h3[data-unify=\"Typography\"]').contains('Masuk').should('be.visible');\n// Input phone number\ncy.get('input[id=\"email-phone\"]').type('akbarpratama170502@gmail.com').should('have.value', 'akbarpratama170502@gmail.com');\ncy.wait(1000);\n// Click \"Selanjutnya\" button\ncy.get('button[data-testid=\"email-phone-submit\"]').click();\ncy.wait(2000);\ncy.get('label[for=\"password-input\"]').should('be.visible');\n// Input Password\ncy.get('input[id=\"password-input\"]').type('Akbar1705').should('have.value', 'Akbar1705');\ncy.wait(1000);\ncy.get('button[type=\"submit\"]').contains('Masuk').click();\ncy.wait(10000);\n// Assert success login\ncy.get('div[id=\"my-profile-header\"]').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `div[id=\"my-profile-header\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `div[id=\"my-profile-header\"]`, but never found it.\n    at Context.eval (webpack://tokopedialogin/./cypress/e2e/loginTokopedia.cy.js:30:42)",
+                "diff": null
+              },
+              "uuid": "6622bc7f-56d0-4292-ba09-eed970bd2e92",
+              "parentUUID": "c1cc21dd-2437-4dc7-9568-1c4c0a041edf",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Failed Login Tokopedia - Not Registered Email",
+              "fullTitle": "Login to Tokopedia Failed Login Tokopedia - Not Registered Email",
+              "timedOut": null,
+              "duration": 24689,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Click \"Masuk\" in Header\ncy.get('button[data-testid=\"btnHeaderLogin\"]').click({\n  force: true\n});\ncy.wait(2000);\ncy.get('h3[data-unify=\"Typography\"]').contains('Masuk').should('be.visible');\n// Input Email Not Registered\ncy.get('input[id=\"email-phone\"]').type('nortergistokopedia@gmail.com').should('have.value', 'nortergistokopedia@gmail.com');\ncy.wait(1000);\n// Click \"Selanjutnya\" button\ncy.get('button[data-testid=\"email-phone-submit\"]').click();\ncy.wait(2000);\ncy.get('h5').contains('Email belum terdaftar').should('be.visible');",
+              "err": {},
+              "uuid": "6fdde847-0ca8-4ac7-8702-db8b0405c5ec",
+              "parentUUID": "c1cc21dd-2437-4dc7-9568-1c4c0a041edf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6fdde847-0ca8-4ac7-8702-db8b0405c5ec"
+          ],
+          "failures": [
+            "6622bc7f-56d0-4292-ba09-eed970bd2e92"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 65606,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "my-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "json": true,
+        "reportsDir": "cypress/results/json",
+        "reportFilename": "my-report",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}
